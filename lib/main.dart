@@ -1,5 +1,7 @@
-
 import 'package:flutter/material.dart';
+import 'package:client_app/OrdersPage.dart';
+import 'package:client_app/CartPage.dart';
+import 'package:client_app/ProfilePage.dart';
 
 void main() => runApp(MaterialApp(home: MyApp()));
 class MyApp extends StatefulWidget {
@@ -8,7 +10,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +22,8 @@ class _MyAppState extends State<MyApp> {
         children: [
           ordersPage(),
           Placeholder(color: Colors.blue),
-          Placeholder(color: Colors.red),
-          Placeholder(color: Colors.yellow,)
+          CartPage(),
+          ProfilePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -52,70 +54,5 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _selectedIndex = index;
     });
-  }
-}
-class ordersPage extends StatefulWidget {
-  @override
-  _ordersPageState createState() => _ordersPageState();
-}
-
-class _ordersPageState extends State<ordersPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          appBar: AppBar(
-            flexibleSpace: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TabBar(
-                  tabs: [
-                    Tab(
-                      text: 'Active',
-                    ),
-                    Tab(
-                      text: 'History',
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-          body: TabBarView(
-            children: [
-              ListView(
-                children: [
-                  OrderCard()
-                ],
-              ),
-              Placeholder(color: Colors.red)
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-class OrderCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          const ListTile(
-              leading: Icon(Icons.restaurant),
-              title: Text('Restaurant name'),
-              subtitle: Text("TEST")
-          ),
-          TextButton(
-            child: const Text('Reorder'),
-            onPressed: () {/* DO SOMETHING */},
-          ),
-        ],
-      ),
-    );
   }
 }

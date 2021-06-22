@@ -12,3 +12,8 @@ class Restaurant{
   String name;
   Restaurant(this.menu, this.address, this.name);
 }
+class FoodItem{
+  String name;
+  int price;
+  FoodItem(this.name, this.price);
+}
