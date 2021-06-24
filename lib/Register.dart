@@ -181,7 +181,7 @@ class _RegisterFormState extends State<RegisterForm> {
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
       print('Form submitted');
-      controller.submitLogin(this.phoneNumber, this.pass);
+      //controller.submitRegister(this.phoneNumber, this.pass);
     }
   }
 }

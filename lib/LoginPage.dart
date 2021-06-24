@@ -106,7 +106,7 @@ class _LoginFormState extends State<LoginForm> {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       print('Form submitted');
-      controller.submitLogin(this.phoneNumber, this.pass);
+      //controller.submitLogin(this.phoneNumber, this.pass);
     }
   }
 }
