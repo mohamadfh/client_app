@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:client_app/models.dart';
+import 'package:client_app/Screens/models.dart';
+
 class ResPage extends StatelessWidget {
   Restaurant res;
   ResPage({
@@ -10,7 +11,14 @@ class ResPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(res.name),
+        backgroundColor: Colors.red,
+        title: Text(
+          res.name,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
       ),
       body: ListView.builder(
         itemCount: res.menu.length,
@@ -23,7 +31,6 @@ class ResPage extends StatelessWidget {
     );
   }
 }
-
 
 class FoodItemCard extends StatelessWidget {
   FoodItem item;

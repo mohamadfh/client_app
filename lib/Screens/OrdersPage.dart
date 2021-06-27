@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-class ordersPage extends StatefulWidget {
+
+import 'Navbar.dart';
+
+class OrdersPage extends StatefulWidget {
   @override
-  _ordersPageState createState() => _ordersPageState();
+  _OrdersPageState createState() => _OrdersPageState();
 }
 
-class _ordersPageState extends State<ordersPage> {
+class _OrdersPageState extends State<OrdersPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,6 +16,7 @@ class _ordersPageState extends State<ordersPage> {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.red,
             flexibleSpace: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -32,14 +36,10 @@ class _ordersPageState extends State<ordersPage> {
           body: TabBarView(
             children: [
               ListView(
-                children: [
-                  OrderCard()
-                ],
+                children: [OrderCard()],
               ),
               ListView(
-                children: [
-                  OrderCard()
-                ],
+                children: [OrderCard()],
               ),
             ],
           ),
@@ -48,18 +48,18 @@ class _ordersPageState extends State<ordersPage> {
     );
   }
 }
+
 class OrderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
       borderOnForeground: true,
       child: Column(
-
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           const ListTile(
-              leading: Icon(Icons.restaurant),
-              title: Text("RESTAURANT NAME"),
+            leading: Icon(Icons.restaurant),
+            title: Text("RESTAURANT NAME"),
           ),
           Text("PRICE"),
           Text("ADDRESS"),
