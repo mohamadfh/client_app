@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:client_app/OrdersPage.dart';
 import 'package:client_app/CartPage.dart';
 import 'package:client_app/ProfilePage.dart';
-void main() => runApp(MaterialApp(home: MyApp()));
-class MyApp extends StatefulWidget {
+class Navbar extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _NavbarState createState() => _NavbarState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _NavbarState extends State<Navbar> {
   int _selectedIndex = 1;
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,11 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/material.dart';
+import 'package:web_socket_channel/io.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
+import 'package:web_socket_channel/status.dart' as status;
+import 'dart:typed_data';
 
 class ActiveOrder{
   int id;
@@ -51,7 +57,7 @@ class User{
 }
 class Database{
   User user;
-  
+
 }
 enum Category{
   fastFood,
@@ -63,5 +69,19 @@ class database{
   Map restaurants;
 }
 class controller{
-  
+  static Future<String> request(String req) async{
+    await Socket.connect("192.168.1.104", 5457).then((socket) {
+      socket.writeln(req);
+      socket.flush();
+      socket.listen((data) {
+        String res = utf8.decode(data);
+        print(res);
+        return res;
+      },
+          onDone: () {
+            print("Done");
+            socket.destroy();
+          });
+    });
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:client_app/Navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:client_app/LoginPage.dart';
 import 'package:client_app/models.dart';
@@ -181,7 +182,10 @@ class _RegisterFormState extends State<RegisterForm> {
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
       print('Form submitted');
-      //controller.submitRegister(this.phoneNumber, this.pass);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Navbar()),
+      );
     }
   }
 }

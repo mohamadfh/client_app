@@ -1,3 +1,4 @@
+import 'package:client_app/Navbar.dart';
 import 'package:client_app/Register.dart';
 import 'package:flutter/material.dart';
 import 'package:client_app/models.dart';
@@ -102,11 +103,17 @@ class _LoginFormState extends State<LoginForm> {
         ));
   }
 
-  void _submit() {
+  void _submit()async{
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       print('Form submitted');
-      //controller.submitLogin(this.phoneNumber, this.pass);
+      controller.request(phoneNumber+pass);
+      if(false){
+        Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Navbar()),
+      );
+      }
     }
   }
 }
